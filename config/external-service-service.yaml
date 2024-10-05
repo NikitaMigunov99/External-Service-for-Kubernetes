@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-service-service
+spec:
+  selector:
+    app: external-service
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8090
