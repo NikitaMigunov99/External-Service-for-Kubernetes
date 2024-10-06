@@ -18,3 +18,13 @@ spec:
           image: nikita99m/external-service
           ports:
             - containerPort: 8090
+          envFrom:
+            - configMapRef:
+                name: my-configmap
+          volumeMounts:
+            - name: config-volume
+              mountPath: "/config"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: config-external-service-configmap
